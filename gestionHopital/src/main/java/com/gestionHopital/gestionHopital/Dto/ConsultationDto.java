@@ -1,30 +1,25 @@
-package com.gestionHopital.gestionHopital.Entity;
+package com.gestionHopital.gestionHopital.Dto;
 
-import jakarta.persistence.*;
+import com.gestionHopital.gestionHopital.Entity.RendezVous;
 
-import java.util.Collection;
 import java.util.Date;
 
-@Entity
-public class Consultation {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class ConsultationDto {
     private Long id;
     private Date dateConsultation;
     private String rapportConsultation;
-    private double prixConsulation;
-    @OneToOne(mappedBy = "consultation")
-    private  RendezVous  rendezVous;
+    private double prixConsultation;
 
-    public Consultation() {
+
+    public ConsultationDto() {
     }
 
-    public Consultation(Long id, Date dateConsultation, String rapportConsultation, double prixConsulation, RendezVous rendezVous) {
+    public ConsultationDto(Long id, Date dateConsultation, String rapportConsultation, double prixConsultation) {
         this.id = id;
         this.dateConsultation = dateConsultation;
         this.rapportConsultation = rapportConsultation;
-        this.prixConsulation = prixConsulation;
-        this.rendezVous = rendezVous;
+        this.prixConsultation = prixConsultation;
+
     }
 
     public Long getId() {
@@ -51,19 +46,13 @@ public class Consultation {
         this.rapportConsultation = rapportConsultation;
     }
 
-
-
-    public RendezVous getRendezVous() {
-        return rendezVous;
-    }
-
-    public void setRendezVous(RendezVous rendezVous) {
-        this.rendezVous = rendezVous;
+    public double getPrixConsultation() {
+        return prixConsultation;
     }
 
     public void setPrixConsultation(double prixConsultation) {
+        this.prixConsultation = prixConsultation;
     }
 
-    public double getPrixConsultation() {  return prixConsulation;
-    }
+
 }
