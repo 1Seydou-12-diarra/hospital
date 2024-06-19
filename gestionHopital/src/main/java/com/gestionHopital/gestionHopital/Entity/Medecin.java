@@ -2,7 +2,9 @@ package com.gestionHopital.gestionHopital.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 @Entity
 public class Medecin {
@@ -12,18 +14,18 @@ public class Medecin {
     private String nom;
     private String specialite;
     private String email;
-    @OneToMany(mappedBy = "medecin")
-    private Collection<RendezVous> rendezVous;
+
+    @OneToMany(mappedBy = "medecin", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<RendezVous> rendezVous = new ArrayList<>();
 
     public Medecin() {
+        // Constructeur par défaut
     }
 
-    public Medecin(Long id, String nom, String specialite, String email, Collection<RendezVous> rendezVous) {
-        this.id = id;
+    public Medecin(String nom, String specialite, String email) {
         this.nom = nom;
         this.specialite = specialite;
         this.email = email;
-        this.rendezVous = rendezVous;
     }
 
     public Long getId() {
@@ -58,11 +60,11 @@ public class Medecin {
         this.email = email;
     }
 
-    public Collection<RendezVous> getRendezVous() {
+    public List<RendezVous> getRendezVous() {
         return rendezVous;
     }
 
-    public void setRendezVous(Collection<RendezVous> rendezVous) {
+    public void setRendezVous(List<RendezVous> rendezVous) {
         this.rendezVous = rendezVous;
     }
 }

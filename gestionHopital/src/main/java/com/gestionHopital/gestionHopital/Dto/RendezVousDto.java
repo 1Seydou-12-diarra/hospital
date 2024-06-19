@@ -19,10 +19,11 @@ public class RendezVousDto {
     public RendezVousDto(Long id, Date dateRendezVous, Medecin medecin, Patient patient, Consultation consultation) {
         this.id = id;
         this.dateRendezVous = dateRendezVous;
-        this.medecin = this.medecin;
+        this.medecin = medecin;
         this.patient = patient;
         this.consultation = consultation;
     }
+
 
     public Long getId() {
         return id;

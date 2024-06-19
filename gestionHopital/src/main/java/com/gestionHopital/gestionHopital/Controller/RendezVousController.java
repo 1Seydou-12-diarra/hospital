@@ -17,12 +17,7 @@ public class RendezVousController {
     @Autowired
     private RendezVousService rendezVousService;
 
-    // Endpoint pour récupérer tous les rendez-vous
-    @GetMapping("/all")
-    public ResponseEntity<List<RendezVousDto>> getAllRendezVous() {
-        List<RendezVousDto> rendezVousList = rendezVousService.getAllRendezVous();
-        return ResponseEntity.ok(rendezVousList);
-    }
+
 
     // Endpoint pour récupérer un rendez-vous par son identifiant
     @GetMapping("/{id}")
@@ -31,7 +26,12 @@ public class RendezVousController {
         return rendezVousDto.map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
-
+    // Endpoint pour récupérer tous les rendez-vous
+    @GetMapping("/all")
+    public ResponseEntity<List<RendezVousDto>> getAllRendezVous() {
+        List<RendezVousDto> rendezVousList = rendezVousService.getAllRendezVous();
+        return ResponseEntity.ok(rendezVousList);
+    }
     // Endpoint pour créer un nouveau rendez-vous
     @PostMapping("/create")
     public ResponseEntity<RendezVousDto> createRendezVous(@RequestBody RendezVousDto rendezVousDto) {

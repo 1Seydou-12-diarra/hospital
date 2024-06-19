@@ -2,28 +2,33 @@ package com.gestionHopital.gestionHopital.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Consultation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Date dateConsultation;
     private String rapportConsultation;
-    private double prixConsulation;
+    private double prixConsultation; // Correction du nom du champ
+
     @OneToOne(mappedBy = "consultation")
-    private  RendezVous  rendezVous;
+    private RendezVous rendezVous;
 
     public Consultation() {
+        // Constructeur par défaut
     }
 
-    public Consultation(Long id, Date dateConsultation, String rapportConsultation, double prixConsulation, RendezVous rendezVous) {
+    public Consultation(Long id, Date dateConsultation, String rapportConsultation, double prixConsultation, RendezVous rendezVous) {
         this.id = id;
         this.dateConsultation = dateConsultation;
         this.rapportConsultation = rapportConsultation;
-        this.prixConsulation = prixConsulation;
+        this.prixConsultation = prixConsultation;
         this.rendezVous = rendezVous;
     }
 
@@ -51,7 +56,13 @@ public class Consultation {
         this.rapportConsultation = rapportConsultation;
     }
 
+    public double getPrixConsultation() {
+        return prixConsultation;
+    }
 
+    public void setPrixConsultation(double prixConsultation) {
+        this.prixConsultation = prixConsultation;
+    }
 
     public RendezVous getRendezVous() {
         return rendezVous;
@@ -59,11 +70,5 @@ public class Consultation {
 
     public void setRendezVous(RendezVous rendezVous) {
         this.rendezVous = rendezVous;
-    }
-
-    public void setPrixConsultation(double prixConsultation) {
-    }
-
-    public double getPrixConsultation() {  return prixConsulation;
     }
 }

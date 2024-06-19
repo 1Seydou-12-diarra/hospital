@@ -9,17 +9,15 @@ public class MedecinDto {
     private String nom;
     private String specialite;
     private String email;
-    private Collection<RendezVous> rendezVous;
 
     public MedecinDto() {
     }
 
-    public MedecinDto(Long id, String nom, String specialite, String email, Collection<RendezVous> rendezVous) {
+    public MedecinDto(Long id, String nom, String specialite, String email) {
         this.id = id;
         this.nom = nom;
         this.specialite = specialite;
         this.email = email;
-
     }
 
     public Long getId() {
@@ -54,12 +52,6 @@ public class MedecinDto {
         this.email = email;
     }
 
-    public Collection<RendezVous> getRendezVous() {
-        return rendezVous;
-    }
 
-    public void setRendezVous(Collection<RendezVous> rendezVous) {
-        this.rendezVous = rendezVous;
-    }
 }
 

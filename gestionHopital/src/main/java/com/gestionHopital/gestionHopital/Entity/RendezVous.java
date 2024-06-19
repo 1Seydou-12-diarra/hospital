@@ -6,23 +6,26 @@ import java.util.Date;
 
 @Entity
 public class RendezVous {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private Date dateRendezVous;
+
     @ManyToOne
     private Medecin medecin;
+
     @ManyToOne
     private Patient patient;
+
     @OneToOne
-    @ManyToOne
     private Consultation consultation;
 
     public RendezVous() {
-
+        // Constructeur par défaut
     }
 
-    public RendezVous(Long id, Date dateRendezVous, Medecin medecin, Patient patient, Consultation consultation) {
-        this.id = id;
+    public RendezVous(Date dateRendezVous, Medecin medecin, Patient patient, Consultation consultation) {
         this.dateRendezVous = dateRendezVous;
         this.medecin = medecin;
         this.patient = patient;

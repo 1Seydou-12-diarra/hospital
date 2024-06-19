@@ -60,8 +60,8 @@ public class MedecinService {
                 medecin.getId(),
                 medecin.getNom(),
                 medecin.getSpecialite(),
-                medecin.getEmail(),
-                medecin.getRendezVous()
+                medecin.getEmail()
+
         );
     }
 
@@ -72,7 +72,6 @@ public class MedecinService {
         medecin.setNom(medecinDto.getNom());
         medecin.setSpecialite(medecinDto.getSpecialite());
         medecin.setEmail(medecinDto.getEmail());
-        medecin.setRendezVous(medecinDto.getRendezVous());
         return medecin;
     }
 }
